@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    min-height: 3000px;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    border-bottom: 2px solid black;
+    background-color: rgb(29, 27, 27);
+}
+
+.judul-web {
+   color: white;
+   font-weight: 700;
+   font-size: 2rem;
+   text-decoration: none;
+}
+
+.judul-web span {
+    color: rgb(240, 174, 7);
+}
+
+.navbar-nav a {
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    margin: 0 1rem;
+}
+
+.navbar-nav a:hover {
+    color: rgba(25, 25, 25, 0.582);
+    transition: 0.2s ease-in-out;
+}
+
+.navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid rgba(13, 13, 13, 0.551);
+    transform: scaleX(0);
+    transition: 0.2s ease-in-out;
+}
+
+.navbar-nav a:hover::after{
+    transform: scaleX(0.5);
+}
+
+.tombol-navbar a {
+    color: white;
+    margin: 0 0.5rem;
+}
+
+.tombol-navbar a:hover{
+    color: rgba(255, 255, 255, 0.688);
+    transition: 0.2s ease-in-out;
+}
+
+#menu {
+    display: none;
+}
+
+/*Bagian isi*/
+.isi {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url(background-pizza.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.isi::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 30%;
+    background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 55%);
+
+}
+
+.content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+.content h1 {
+    font-size: 4em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    line-height: 1.5;
+}
+
+.content h1 span{
+    color: rgb(240, 174, 7);
+}
+
+.content p{
+    font-size:  1.8em;
+    margin-top: 1rem;
+    line-height: 1.4;
+    font-weight: 100;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.cta {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: white;
+    background-color: rgb(240, 174, 7);
+    border-radius: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    text-decoration: none;
+}
+
+/*Bagian Isi Selesai*/
+
+/*Bagian Tentang Kami*/
+.about, .menu{
+    padding: 8rem 7% 1.4rem;
+}
+
+.about h2, .menu h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.about span, .menu h2 span{
+    color: rgb(240, 174, 7);
+}
+
+.about .row {
+    display: flex;
+}
+
+.about .row .about-img {
+    flex: 1 1 45rem;
+
+}
+
+.about .row .about-img img {
+    width: 100%;
+}
+
+.about .row .content {
+    flex:  1 1 35rem;
+    padding:  0 1rem;
+}
+
+.about .row .content h3{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.about .row .content p{
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 100;
+    line-height: 1.6;
+}
+
+/*Bagian Tentang Selesai*/
+/*Bagian Menu*/
+
+/*Bagian Menu selesai*/
+/*tablet*/
+@media (max-width: 768px) {
+    html{
+        font-size: 62.5%;
+    }
+    #menu {
+        display: inline-block;
+    }
+    .navbar-nav{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: rgb(255, 255, 255); /*buat ganti warna di navbar*/
+        height: 100vh;
+        width: 30rem;
+        transition: 0.8s;
+    }
+    .navbar-nav.active{
+        right: 0;
+    }
+    .navbar-nav a::after{
+        transform-origin: 0 0;
+    }
+    
+    .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+    .navbar-nav a{
+        color: rgb(0, 0, 0); /*warna text di navbar*/
+        display: block;
+        margin: 1.5rem;
+        padding: 2rem;
+        font-size: 2rem;
+    }
+
+    .about .row{
+        flex-wrap: wrap;
+    }
+
+    .about .row .about-img img{
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+
+    }
+
+    .about .row .content{
+        padding: 0;
+    }
+
+    .about .row .content h3{
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .about .row .content p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html{
+        font-size: 52.5%;
+    }
+}
+/*Navbar End*/
+
+/*Bagian Isi*/
+
+/*Bagian Isi Selesai*/
