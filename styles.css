@@ -9,7 +9,48 @@
 
 body {
     background-color: rgb(0, 0, 0);
-    min-height: 3000px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 185px;
+    top: 25px;
+    background: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    border: none;
+    outline: none;
+    overflow: hidden;
+}
+
+.search-ikon {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.search-bar.active {
+    transform: scaleX(1);
+}
+
+#search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 250px;
+    font-size: 14px;
+}
+
+#search-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .navbar-container{
@@ -37,6 +78,16 @@ body {
     color: rgb(240, 174, 7);
 }
 
+.navbar-nav {
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out, visibility 0.5s;
+    display: flex;
+}
+
+.navbar-nav.hidden {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .navbar-nav a {
     color: rgb(255, 255, 255);
     display: inline-block;
@@ -46,7 +97,7 @@ body {
 }
 
 .navbar-nav a:hover {
-    color: rgba(25, 25, 25, 0.582);
+    color: rgba(147, 147, 147, 0.349);
     transition: 0.2s ease-in-out;
 }
 
@@ -54,13 +105,18 @@ body {
     content: '';
     display: block;
     padding-bottom: 0.5rem;
-    border-bottom: 0.1rem solid rgba(13, 13, 13, 0.551);
+    border-bottom: 0.1rem solid rgba(216, 216, 216, 0.837);
     transform: scaleX(0);
     transition: 0.2s ease-in-out;
 }
 
 .navbar-nav a:hover::after{
     transform: scaleX(0.5);
+}
+
+.navbar-nav.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .tombol-navbar a {
@@ -185,11 +241,84 @@ body {
     font-weight: 100;
     line-height: 1.6;
 }
-
 /*Bagian Tentang Selesai*/
+
 /*Bagian Menu*/
 
+.menu h2 {
+    margin-bottom: 1.5rem;
+}
+.menu p{
+    color: white;
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    line-height: 1.6;
+    font-weight: 100;
+
+}
+.menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+}
+
+.menu .row .menu-card {
+    text-align: center;
+}
+
+.menu .row .menu-card img {
+    border-radius:50%;
+    width: 45%;
+}
+
+.menu .row .menu-judul {
+    margin: 1rem auto 0.5rem;
+    color: white;
+}
 /*Bagian Menu selesai*/
+/*Bagian Footer*/
+footer {
+    background-color: rgb(29, 27, 27);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    height: 30%;
+}
+
+footer .social {
+    padding: 1rem 0;
+}
+
+.credit {
+    color: white;
+    font-weight: 150;
+}
+
+footer .social a {
+    color: rgba(255, 255, 255, 0.426);
+    padding: 0.5rem;
+}
+
+footer .social a:hover {
+    color: white;
+    transition: 0.5s ease-in;
+}
+
+.credit p a{
+    color: rgba(255, 255, 255, 0.54);
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 150;
+    padding: 0.5rem;
+}
+/*Bagian Footer*/
 /*tablet*/
 @media (max-width: 768px) {
     html{
@@ -205,8 +334,14 @@ body {
         background-color: rgb(255, 255, 255); /*buat ganti warna di navbar*/
         height: 100vh;
         width: 30rem;
-        transition: 0.8s;
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out, visibility 0.5s;
     }
+
+    .navbar-nav.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
     .navbar-nav.active{
         right: 0;
     }
@@ -248,11 +383,61 @@ body {
     .about .row .content p {
         font-size: 1.6rem;
     }
+    .search-bar {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 158px;
+        top: 9px;
+        background: white;
+        padding: 5px;
+        border-radius: 20px;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    .search-bar.active {
+        transform: scaleX(1);
+    }
+    
+    #search-input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        width: 230px;
+        font-size: 14px;
+    }
+    
+    #search-button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
     html{
         font-size: 52.5%;
+    }
+    .search-bar {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 150px;
+        top: 9px;
+        background: white;
+        padding: 5px;
+        border-radius: 20px;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        width: 70px;
     }
 }
 /*Navbar End*/
